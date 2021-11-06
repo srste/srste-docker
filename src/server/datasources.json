@@ -1,0 +1,21 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mmf": {
+    "hostname": "mydb",
+    "port": 3307,
+    "url": "",
+    "database": "srstee",
+    "password": "srstee",
+    "name": "mmf",
+    "user": "proxyuser",
+    "connector": "mysql",
+    "insecureAuth": true,
+    "connectionLimit": 10000,
+    "connectTimeout": 3600000,
+    "timeout": 3600000,
+    "acquireTimeout": 3600000
+  }
+}

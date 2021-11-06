@@ -1,0 +1,47 @@
+{
+  "name": "MetaDocumentMap",
+  "plural": "MetaDocumentMaps",
+  "idInjection": false,
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "public":true
+  },
+  "properties": {
+    "uid": {
+      "type": "String",
+      "id": true,      
+      "defaultFn": "guid"
+    },     
+    "DocumentId": {
+      "type": "String",
+      "required": true
+    },    
+    "Model": {
+      "type": "String",
+      "required": true
+    },    
+    "ModelId": {
+      "type": "String",
+      "required": true
+    },
+    "srs_created_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },  
+    "srs_updated_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },
+    "srs_created_by": {
+      "type": "String",
+      "default": "System"
+    },
+    "srs_updated_by": {
+      "type": "String",
+      "default": "System"
+    }    
+  }
+}

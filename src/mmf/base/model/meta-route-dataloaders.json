@@ -1,0 +1,48 @@
+{
+  "name": "MetaRouteDataLoader",
+  "plural": "MetaRouteDataLoaders",
+  "idInjection": false,
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "public": true
+  },
+  "properties": {
+    "uid": {
+      "type": "String",
+      "id": true,
+      "defaultFn": "guid"
+    },
+    "Router": {
+      "type": "String"
+    },
+    "Name": {
+      "type": "String",
+      "required": true
+    },
+    "Loader": {
+      "type": "Text"
+    },
+    "Order": {
+      "type": "Number"
+    },
+    "srs_created_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },  
+    "srs_updated_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },
+    "srs_created_by": {
+      "type": "String",
+      "default": "System"
+    },
+    "srs_updated_by": {
+      "type": "String",
+      "default": "System"
+    }
+  }
+}

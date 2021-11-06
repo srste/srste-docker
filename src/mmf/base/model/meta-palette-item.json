@@ -1,0 +1,73 @@
+{
+  "name": "MetaPaletteItem",
+  "plural": "MetaPaletteItems",
+  "idInjection": false,
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "public":true
+  },
+  "properties": {
+    "uid": {
+      "type": "String",
+      "id": true,
+      "defaultFn": "guid"
+    },    
+    "Name": {
+      "type": "String"      
+    },    
+    "ComponentId": {
+      "type": "String",
+      "required": true
+    },
+    "Order": {
+      "type": "Number"
+    },
+    "DefaultWidth": {
+      "type": "Number",
+      "required": true
+    },
+    "DefaultHeight": {
+      "type": "Number",
+      "required": true
+    }, 
+    "MinWidth": {
+      "type": "Number",
+      "required": true
+    },
+    "MinHeight": {
+      "type": "Number",
+      "required": true
+    },
+    "MaxWidth": {
+      "type": "Number",
+      "required": true
+    },
+    "MaxHeight": {
+      "type": "Number",
+      "required": true
+    },   
+    "Palette": {
+      "type": "String",
+      "required": true
+    }, 
+    "srs_created_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },  
+    "srs_updated_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },
+    "srs_created_by": {
+      "type": "String",
+      "default": "System"
+    },
+    "srs_updated_by": {
+      "type": "String",
+      "default": "System"
+    }
+  }
+}

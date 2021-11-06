@@ -1,0 +1,24 @@
+{
+  "short_name": "SRSTE",
+  "name": "Srste",
+  "icons": [
+    {
+      "src": "/launcher-icon-2x.png",
+      "sizes": "92x91",
+      "type": "image/png"
+    },
+    {
+      "src": "/launcher-icon-2x.png",
+      "sizes": "92x91",
+      "type": "image/png"
+    },
+    {
+      "src": "/launcher-icon-2x.png",
+      "sizes": "92x91",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}

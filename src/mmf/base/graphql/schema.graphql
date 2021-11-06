@@ -1,0 +1,223 @@
+scalar DateTime
+
+# The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+scalar JSON
+
+type Mutation {
+  # Create a new instance of the model and persist it into the data source.
+  UserCreate(input: UserCreateInput!): UserCreatePayload
+
+  # Patch an existing model instance or insert a new one into the data source.
+  UserUpsert(input: UserUpsertInput!): UserUpsertPayload
+
+  # Replace an existing model instance or insert a new one into the data source.
+  UserReplaceOrCreate(input: UserReplaceOrCreateInput!): UserReplaceOrCreatePayload
+
+  # Update an existing model instance or insert a new one into the data source based on the where criteria.
+  UserUpsertWithWhere(input: UserUpsertWithWhereInput!): UserUpsertWithWherePayload
+
+  # Replace attributes for a model instance and persist it into the data source.
+  UserReplaceById(input: UserReplaceByIdInput!): UserReplaceByIdPayload
+
+  # Update instances of the model matched by {{where}} from the data source.
+  UserUpdateAll(input: UserUpdateAllInput!): UserUpdateAllPayload
+
+  # Delete a model instance by {{id}} from the data source.
+  UserDeleteById(input: UserDeleteByIdInput!): UserDeleteByIdPayload
+
+  # Login a user with username/email and password.
+  UserLogin(input: UserLoginInput!): UserLoginPayload
+
+  # Logout a user with access token.
+  UserLogout(input: UserLogoutInput!): UserLogoutPayload
+
+  # Reset password for a user with email.
+  UserResetPassword(input: UserResetPasswordInput!): UserResetPasswordPayload
+}
+
+# An object with an ID
+interface Node {
+  # The id of the object.
+  id: ID!
+}
+
+# Information about pagination in a connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type Query {
+  User: UserQueries
+}
+
+type User implements Node {
+  realm: String
+  username: String
+  email: String!
+  emailVerified: Boolean
+  status: String
+  created: DateTime
+  lastUpdated: DateTime
+
+  # The ID of an object
+  id: ID!
+}
+
+# A connection to a list of items.
+type UserConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [UserEdge]
+
+  # Total number of items
+  totalCount: Int
+}
+
+input UserCreateInput {
+  data: JSON
+  clientMutationId: String
+}
+
+type UserCreatePayload {
+  obj: User
+  clientMutationId: String
+}
+
+input UserDeleteByIdInput {
+  id: JSON
+  clientMutationId: String
+}
+
+type UserDeleteByIdPayload {
+  obj: JSON
+  clientMutationId: String
+}
+
+# An edge in a connection.
+type UserEdge {
+  # The item at the end of the edge
+  node: User
+
+  # A cursor for use in pagination
+  cursor: String!
+}
+
+input UserLoginInput {
+  credentials: JSON
+  include: JSON
+  clientMutationId: String
+}
+
+type UserLoginPayload {
+  obj: JSON
+  clientMutationId: String
+}
+
+input UserLogoutInput {
+  access_token: String
+  clientMutationId: String
+}
+
+type UserLogoutPayload {
+  obj: JSON
+  clientMutationId: String
+}
+
+# User
+type UserQueries {
+  # Check whether a model instance exists in the data source.
+  UserExists(id: JSON): Boolean
+
+  # Find a model instance by {{id}} from the data source.
+  UserFindById(id: JSON, filter: JSON): User
+
+  # Find all instances of the model matched by filter from the data source.
+  UserFind(filter: JSON, after: String, first: Int, before: String, last: Int): UserConnection
+
+  # Find first instance of the model matched by filter from the data source.
+  UserFindOne(filter: JSON): User
+
+  # Count instances of the model matched by where from the data source.
+  UserCount(where: JSON): Int
+
+  # Login a user
+  UserLogin(credentials: JSON): JSON
+
+  # Confirm a user registration with email verification token.
+  UserConfirm(uid: String, token: String, redirect: String): JSON
+}
+
+input UserReplaceByIdInput {
+  id: JSON
+  data: JSON
+  clientMutationId: String
+}
+
+type UserReplaceByIdPayload {
+  obj: User
+  clientMutationId: String
+}
+
+input UserReplaceOrCreateInput {
+  data: JSON
+  clientMutationId: String
+}
+
+type UserReplaceOrCreatePayload {
+  obj: User
+  clientMutationId: String
+}
+
+input UserResetPasswordInput {
+  options: JSON
+  clientMutationId: String
+}
+
+type UserResetPasswordPayload {
+  obj: JSON
+  clientMutationId: String
+}
+
+input UserUpdateAllInput {
+  where: JSON
+  data: JSON
+  clientMutationId: String
+}
+
+type UserUpdateAllPayload {
+  obj: JSON
+  clientMutationId: String
+}
+
+input UserUpsertInput {
+  data: JSON
+  clientMutationId: String
+}
+
+type UserUpsertPayload {
+  obj: User
+  clientMutationId: String
+}
+
+input UserUpsertWithWhereInput {
+  where: JSON
+  data: JSON
+  clientMutationId: String
+}
+
+type UserUpsertWithWherePayload {
+  obj: User
+  clientMutationId: String
+}

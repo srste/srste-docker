@@ -1,0 +1,68 @@
+{
+    "name": "MetaWidgetAction",
+    "plural": "MetaWidgetActions",
+    "idInjection": false,
+    "base": "PersistedModel",
+    "options": {
+      "validateUpsert": true,
+      "public":true
+    },
+    "properties": {
+      "uid": {
+        "type": "String",
+        "id": true,
+        "defaultFn": "guid"
+      },
+      "Name": {
+        "type": "String",
+        "required": true
+      },
+      "Scope": {
+        "type": "String",
+        "required": true
+      },
+      "Active": {
+        "type": "Boolean",
+        "required": true
+      },
+      "Definition": {
+        "type": "Text",
+        "required": true
+      },  
+      "Type": {
+        "type": "String",
+        "default": "Current"
+      },
+      "Target": {
+        "type": "String"
+      },
+      "Order": {
+        "type": "Number"
+      },
+      "Trigger": {
+        "type": "String",
+        "default": "Always"
+      },
+      "Widget": {
+        "type": "String"        
+      },
+      "srs_created_at": {
+        "type": "date",
+        "dataType": "timestamp",
+        "defaultFn": "now"
+      },  
+      "srs_updated_at": {
+        "type": "date",
+        "dataType": "timestamp",
+        "defaultFn": "now"
+      },
+      "srs_created_by": {
+        "type": "String",
+        "default": "System"
+      },
+      "srs_updated_by": {
+        "type": "String",
+        "default": "System"
+      }
+    }    
+  }

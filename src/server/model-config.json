@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "./common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "./common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {    
+    "dataSource": "mmf",
+    "public": true,
+    "acls": []
+  },
+  "AccessToken": {
+    "dataSource": "mmf",
+    "public": false
+  },
+  "ACL": {    
+    "dataSource": "mmf",
+    "public": true
+  },
+  "RoleMapping": {
+    "dataSource": "mmf",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }    
+  },
+  "Role": {
+    "dataSource": "mmf",
+    "public": true
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "MetaModel",
+  "plural": "MetaModels",
+  "idInjection": false,
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "public":true
+  },
+  "properties": {
+    "uid": {
+      "type": "String",
+      "id": true,
+      "defaultFn": "guid"
+    },
+    "Name": {
+      "type": "String",
+      "required": true
+    },
+    "Definition": {
+      "type": "Text",
+      "required": true
+    },
+    "Scope": {
+      "type": "Text",
+      "required": true
+    },
+    "DefaultSchema": {
+      "type": "Text",
+      "required": true
+    },
+    "DefaultRawSchema": {
+      "type": "Text",
+      "required": true
+    },
+    "srs_created_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },  
+    "srs_updated_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },
+    "srs_created_by": {
+      "type": "String",
+      "default": "System"
+    },
+    "srs_updated_by": {
+      "type": "String",
+      "default": "System"
+    }
+  }
+}

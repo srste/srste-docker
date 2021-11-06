@@ -1,0 +1,52 @@
+{
+  "name": "MetaBundlefragment",
+  "plural": "MetaBundlefragments",
+  "idInjection": false,
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "public":true
+  },
+  "properties": {
+    "uid": {
+      "type": "String",
+      "id": true,      
+      "defaultFn": "guid"
+    },     
+    "BundleId": {
+      "type": "String",
+      "required": true
+    },    
+    "Data": {
+      "type": "Object",              
+      "mysql":
+      {
+          "columnName":"Data",
+          "dataType":"MEDIUMBLOB",          
+          "nullable":"N"
+      },
+      "required": true
+    },    
+    "Order": {
+      "type": "Number"
+    },
+    "srs_created_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },  
+    "srs_updated_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },
+    "srs_created_by": {
+      "type": "String",
+      "default": "System"
+    },
+    "srs_updated_by": {
+      "type": "String",
+      "default": "System"
+    }    
+  }
+}

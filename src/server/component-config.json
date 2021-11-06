@@ -1,0 +1,13 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer",
+    "apiInfo": {
+      "title": "Srstee Platform",
+      "description": "Srstee APIs",
+      "termsOfServiceUrl": "http://srste.in/terms/",
+      "contact": "contact.srstee@gmail.com",
+      "license": "Srste License",
+      "licenseUrl": "http://www.srste.in/LICENSE.html"
+    }
+  }
+}

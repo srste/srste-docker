@@ -1,0 +1,31 @@
+{
+  "restApiRoot": "/api/srs",
+  "cookieSecret": "srste-platform",
+  "host": "0.0.0.0",
+  "syncPort": 2222,
+  "port": 8080, 
+  "sslport": 444,
+  "testport1": 1400,
+  "testport2": 1401,
+  "debugMode": true,
+  "numberOfWorkers": 5,
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "legacyExplorer": false,
+  "logoutSessionsOnSensitiveChanges": true
+}

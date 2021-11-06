@@ -1,0 +1,38 @@
+{
+  "startTime": "2020-08-31T17:49:51.672Z",
+  "endTime": "2020-08-31T17:51:43.513Z",
+  "userAgents": [
+    "Chrome 84.0.4147.135 / macOS 10.14.5"
+  ],
+  "passed": 1,
+  "total": 2,
+  "skipped": 0,
+  "fixtures": [
+    {
+      "name": "Vendor Signin",
+      "path": "/Users/chaitanya.saragadam/OneDrive/myrepos/MyApps/srste ws/srste/server/test2.js",
+      "meta": {},
+      "tests": [
+        {
+          "name": "editable OTP with valid mobile number",
+          "meta": {},
+          "errs": [],
+          "durationMs": 58826,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Open Page Designer",
+          "meta": {},
+          "errs": [
+            "The element that matches the specified selector is not visible.\n\nBrowser: Chrome 84.0.4147.135 / macOS 10.14.5\n\n   69 |        .shadowRoot.querySelector('a[id=\"67b10660-a2b0-11ea-bad8-f10d450db69b\"]'), {timeout: 20000});  \n   70 |    \n   71 |    let paletteListWidget = await Selector(() => document.querySelector('page-designer')        \n   72 |        .shadowRoot.querySelector('widget-container[widgetid=\"a128c4b0-ca41-11ea-b951-771e74364676\"]'), {timeout: 20000});  \n   73 |    \n > 74 |    await t.click(palettesLink);\n   75 |\n   76 |    await t.expect(paletteListWidget.hasAttribute('tag')).eql(true);\n   77 |\n   78 |});\n\n   at <anonymous> (/Users/chaitanya.saragadam/OneDrive/myrepos/MyApps/srste ws/srste/server/test2.js:74:13)\n   at step (/Users/chaitanya.saragadam/OneDrive/myrepos/MyApps/srste ws/srste/node_modules/babel-runtime/helpers/asyncToGenerator.js:17:30)\n   at <anonymous> (/Users/chaitanya.saragadam/OneDrive/myrepos/MyApps/srste ws/srste/node_modules/babel-runtime/helpers/asyncToGenerator.js:28:13)"
+          ],
+          "durationMs": 52962,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

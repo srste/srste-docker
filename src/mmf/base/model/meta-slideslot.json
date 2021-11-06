@@ -1,0 +1,76 @@
+{
+  "name": "MetaSlideSlot",
+  "plural": "MetaSlideSlots",
+  "idInjection": false,
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "public":true
+  },
+  "properties": {
+    "uid": {
+      "type": "String",
+      "id": true,
+      "defaultFn": "guid"
+    },
+    "xposition": {
+      "type": "Number"
+    },
+    "yposition": {
+      "type": "Number"
+    },
+    "width": {
+      "type": "Number"
+    },
+    "height": {
+      "type": "Number"
+    },
+    "minwidth": {
+      "type": "Number"
+    },
+    "maxwidth": {
+      "type": "Number"
+    },
+    "minheight": {
+      "type": "Number"
+    },
+    "maxheight": {
+      "type": "Number"
+    },
+    "resize": {
+      "type": "Text"
+    },
+    "move": {
+      "type": "Text"
+    },
+    "Layout": {
+      "type": "String",
+      "default": "Default"
+    },
+    "Slide": {
+      "type": "String",
+      "required": true
+    },
+    "Widget": {
+      "type": "String"      
+    },
+    "srs_created_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },  
+    "srs_updated_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },
+    "srs_created_by": {
+      "type": "String",
+      "default": "System"
+    },
+    "srs_updated_by": {
+      "type": "String",
+      "default": "System"
+    }
+  }
+}

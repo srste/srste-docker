@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Srstee - One Home!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="manifest" href="/manifest.json"> -->    
+    <link rel="preload" href="/thirdpartylib/cached/form-bundle.js" as="script">
+    <link rel="preload" href="/src/loadMandatoryScriptsBeforeSystemJS.js" as="script">
+    <link rel="preload" href="/src/loadMandatoryScriptsAfterSystemJS.js" as="script">
+    <link rel="preload" href="/thirdpartylib/jquery.min.js" as="script">
+    <link rel="preload" href="/thirdpartylib/jquery-ui.min.js" as="script">
+    <link rel="preload" href="/thirdpartylib/underscore.js" as="script">
+    <link rel="preload" href="/thirdpartylib/bootstrap.min.js" as="script">
+    <link rel="preload" href="/thirdpartylib/carbon-components/carbon-react.min.js" as="script">
+    <link rel="preload" href="/thirdpartylib/core/core_json.js" as="script">    
+    <link rel="preload" href="/thirdpartylib/core/core_jsonforms.js" as="script">
+    <link rel="preload" href="/thirdpartylib/core/core_part1.js" as="script">
+    <link rel="preload" href="/thirdpartylib/core/core_part2.js" as="script">
+    <link rel="preload" href="/thirdpartylib/core/core_jsonforms.js" as="script">    
+    <link rel="stylesheet" href="/thirdpartylib/carbon-components/styles.css"/>
+    <link rel="icon" href="/resources/favlogo.png">
+    <link rel="stylesheet" href="/src/index.css">      
+    <script src="/src/scriptloader.js"></script>
+    <script src="/src/loadMandatoryScriptsBeforeSystemJS.js"></script>        
+    <!--
+      <script type="module">
+        fetch("/load/pagemodule/workmania", {"accept": "application/json"})
+        .then(response=>response.json())
+        .then(async (data)=> {
+          var pkgObjMap = {};
+          var pkgMap = {};
+          if(data && data.length > 0) {
+            for(var dataIndx in data) {
+              try {					
+                var dataItem = data[dataIndx];
+                if(dataItem.name) {
+                  var tempObj = await import(dataItem.url);
+                  pkgObjMap[dataItem.name] = tempObj;
+                  pkgMap[dataItem.name] = dataItem.name + ".js";
+                }else {
+                  var scriptTag = document.createElement('script');
+                  scriptTag.type = 'module';
+                  scriptTag.src = dataItem.url;
+                  document.getElementsByTagName("head")[0].appendChild(scriptTag);
+                }
+              }catch(err) {
+              }
+            }
+            System.config({"dynalib": pkgObjMap});
+            var pkgMapKeys = Object.keys(pkgMap);
+            for(var pkgMapIndx in pkgMapKeys) {
+              var pkgMapKey = pkgMapKeys[pkgMapIndx];
+              System.registerDynamic(pkgMapKey + ".js", [], true, 
+                function(require, exports, module) { 
+                  module.exports = System.dynalib[pkgMapKey];		
+                }
+              )
+            }
+            System.config({"map": pkgMap});
+            window.isDynalibReady = true;			
+          }else {
+            window.isDynalibReady = true;
+          }
+        })
+        .catch((err) => {
+          window.isDynalibReady = true;
+        })
+        // if ('serviceWorker' in navigator) {
+        //   window.addEventListener('load', function() {
+        //     navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
+        //       console.log('Service worker registered with scope: ', registration.scope);
+        //     }, function(err) {
+        //       console.log('ServiceWorker registration failed: ', err);
+        //     });
+        //   });    
+        // }
+      </script>    
+    -->
+    
+    <script> 
+      var $qry = null; 
+      window.isDynalibReady = true;
+    </script>    
+    <script src="/src/loadMandatoryScriptsAfterSystemJS.js"></script>
+    <script src="/src/index.js"></script>    
+    <script src="/src/loadNonMandatoryScripts.js"></script>
+    <link href="/thirdpartylib/quill.css" rel="stylesheet">    
+  </head>
+  <body>
+    <div class="wrap-outter">
+      <div data-inline-loading class="bx--inline-loading pageloader" role="alert" aria-live="assertive">
+        <div class="bx--inline-loading__animation">
+            <div data-inline-loading-spinner class="bx--loading bx--loading--small">
+            <svg class="bx--loading__svg" viewBox="-75 -75 150 150">
+                <circle class="bx--loading__background" cx="0" cy="0" r="26.8125" />
+                <circle class="bx--loading__stroke" cx="0" cy="0" r="26.8125"/>
+            </svg>
+            </div>
+            <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;" xmlns="http://www.w3.org/2000/svg" class="bx--inline-loading__checkmark-container" hidden="" data-inline-loading-finished="" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8,1C4.1,1,1,4.1,1,8c0,3.9,3.1,7,7,7s7-3.1,7-7C15,4.1,11.9,1,8,1z M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z"></path><path d="M7,11L4.3,8.3l0.9-0.8L7,9.3l4-3.9l0.9,0.8L7,11z" data-icon-path="inner-path" opacity="0"></path></svg>
+        </div>
+        <p data-inline-loading-text-active class="bx--inline-loading__text">Downloading resources...</p>
+        <p data-inline-loading-text-finished hidden class="bx--inline-loading__text">Data loaded.</p>
+      </div>       
+      <div class="loader-subtitle">For first time load, it might take few more seconds.</div>      
+    </div>
+    <srsteroot id="root"></srsteroot>  
+    <!-- <script>
+        System.import('/build/shell.js');
+    </script>
+    <script src="/build/register-serviceworker.js" ></script>   -->
+  </body>
+</html>

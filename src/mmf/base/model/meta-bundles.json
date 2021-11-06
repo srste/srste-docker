@@ -1,0 +1,45 @@
+{
+  "name": "MetaBundle",
+  "plural": "MetaBundles",
+  "idInjection": false,
+  "base": "PersistedModel",
+  "options": {
+    "validateUpsert": true,
+    "public":true
+  },
+  "properties": {
+    "uid": {
+      "type": "String",
+      "id": true,      
+      "defaultFn": "guid"
+    },     
+    "AppName": {
+      "type": "String",
+      "required": true
+    },    
+    "Active": {
+      "type": "Boolean"
+    },
+    "DebugMode": {
+      "type": "Boolean"
+    },
+    "srs_created_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },  
+    "srs_updated_at": {
+      "type": "date",
+      "dataType": "timestamp",
+      "defaultFn": "now"
+    },
+    "srs_created_by": {
+      "type": "String",
+      "default": "System"
+    },
+    "srs_updated_by": {
+      "type": "String",
+      "default": "System"
+    }    
+  }
+}
