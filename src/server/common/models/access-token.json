@@ -2,7 +2,8 @@
   "name": "AccessToken",
   "properties": {
     "id": {
-      "type": "text",      
+      "type": "string",      
+      "datatype": "longtext",
       "id": true
     },
     "ttl": {

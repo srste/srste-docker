@@ -11,64 +11,11 @@ services:
       MYSQL_ROOT_PASSWORD: srstee
       MYSQL_DATABASE: srstee
       MYSQL_USER: proxyuser
-      MYSQL_PASSWORD: srstee    
-  mydb1:
-    image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql      
-      - ./docker/provision/mysql/init:/docker-entrypoint-initdb.d
-    #restart: always
-    ports:
-     - "3307:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: srstee
-      MYSQL_DATABASE: camunda_db
-      MYSQL_USER: proxyuser
-      MYSQL_PASSWORD: srstee       
-  camunda1:    
-    depends_on:
-      - mydb1
-    image: camunda/camunda-bpm-platform:latest
-    container_name: camunda1    
-    environment:
-      DB_DRIVER: com.mysql.jdbc.Driver
-      DB_URL: jdbc:mysql://192.168.0.101:3307/camunda_db?autoReconnect=true
-      DB_USERNAME: proxyuser
-      DB_PASSWORD: srstee
-    ports:
-     - "8091:8080"          
-    restart: always      
-  impex:    
-    depends_on:    
-      - mydb
-    image: srste/srste:1.0.0.full    
-    #command: node --max-old-space-size=6144 server/server.js --single
-    #command: npm run debug
-    command: node -e 'setTimeout(()=>console.log("Test!"), 10000000)' 
-    environment:
-      - NODE_ENV=production
-      - NODE_OPTIONS="--max-old-space-size=10240"
-      - DB_USER=proxyuser
-      - DB_PORT=3307
-      - DB_HOST=192.168.0.101
-      - DB_PASSWORD=srstee
-      - DB_DATABASE=srstee
-    ports:
-     - "8011:8080"      
-     - "1337:1337"      
-     - "1338:1338"      
-     - "2223:2222"        
-    restart: always
-    deploy: 
-       resources: 
-            limits: 
-                memory: 4096m
-            reservations: 
-                memory: 2048m 
+      MYSQL_PASSWORD: srstee      
   impex2:    
     depends_on:    
       - mydb
-    image: srste/srste:1.0.0.full     
+    image: srste/srste:2.0.0
     command: node --max-old-space-size=6144 server/server.js --single
     #command: npm run debug
     #command: node -e 'setTimeout(()=>console.log("Test!"), 10000000)' 
@@ -91,68 +38,6 @@ services:
      - "2224:2222"  
      - "1337:1337"
      - "1338:1338"     
-    restart: always    
-  impex3:    
-    depends_on:    
-      - mydb
-    image: srste/srste:1.0.0.full  
-    command: node --max-old-space-size=6144 server/server.js --single
-    #command: npm run debug
-    #command: node -e 'setTimeout(()=>console.log("Test!"), 10000000)' 
-    environment:
-      - NODE_ENV=production
-      - NODE_OPTIONS="--max-old-space-size=10240"
-      - DB_USER=proxyuser
-      - DB_PORT=3307
-      - DB_HOST=192.168.0.101
-      - DB_PASSWORD=srstee
-      - DB_DATABASE=srstee
-      - REDIS=192.168.0.101:6379
-      - USE_REDIS=true
-      - NODE_ID=Node2
-    ports:
-     - "8013:8080"             
-    restart: always 
-  brk:
-    depends_on:
-      - mydb
-    image: srste/srste:1.0.0.full
-    command: npm run debug
-    #command: npm run single
-    #command: npm run start
-    #command: node -e 'setTimeout(()=>console.log("Test!"), 10000000)' 
-    environment:
-      - NODE_ENV=production
-      - NODE_OPTIONS="--max-old-space-size=10240"
-      - DB_USER=proxyuser
-      - DB_PORT=3307
-      - DB_HOST=10.166.128.127
-      - DB_PASSWORD=srstee
-      - DB_DATABASE=srstee
-    ports:
-     - "8012:8080" 
-     - "9229:9229"  
-     - "2224:2222"      
-    restart: always   
-  web:
-    depends_on:
-      - mydb
-    image: srste/srste:1.0.0.full
-    #command: npm run debug
-    #command: npm run single
-    command: npm run start
-    #command: node server/dummy.js
-    environment:
-      - NODE_ENV=production
-      - NODE_OPTIONS="--max-old-space-size=10240"
-      - DB_USER=proxyuser
-      - DB_PORT=3307
-      - DB_HOST=192.168.0.101
-      - DB_PASSWORD=srstee
-      - DB_DATABASE=srste
-    ports:
-     - "8010:8080"       
-     - "443:443"   
     restart: always
 volumes:
     db_data:
